@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>PowerGrid | Operations Tools</title><link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../css/app.css?v=20260921-hardening2" /><link rel="stylesheet" href="../css/branding.css?v=20260921-hardening2" /></head>
+  <body>
+    <div class="mobile-bar"><div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div><button class="mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button></div>
+    <aside class="app-sidebar" id="sidebar"><div class="sidebar-brand"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div><nav class="sidebar-nav"><a href="index.html"><span class="nav-symbol">⌂</span>Dashboard</a><a href="incidents.html"><span class="nav-symbol">◈</span>Incidents</a><a href="reports.html"><span class="nav-symbol">▤</span>Reports</a><a href="analytics.html"><span class="nav-symbol">⌁</span>Analytics</a><a class="active" href="operations-tools.html"><span class="nav-symbol">⚙</span>Operations Tools</a></nav><div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>City of Tshwane</strong><span>Planning a better tomorrow</span></div></div></aside><div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="app-main"><div class="page-wrap">
+      <header class="page-head"><div><span class="environment-label">Operations tools</span><h1 style="margin-top:8px">Operational controls</h1><p>Manage smart-meter signals, restoration confirmation, and local application data.</p></div></header>
+      <section class="demo-grid">
+        <article class="card card-pad"><div class="section-head"><h2>Record smart-meter offline event</h2></div>
+          <form id="meterForm" class="form-grid">
+            <div><label class="form-label" for="meterId">Meter ID</label><input class="field" id="meterId" value="MTR-OPS-1008" required /></div>
+            <div><label class="form-label" for="meterArea">Area</label><select class="select" id="meterArea"></select></div>
+            <div><label class="form-label" for="meterLatitude">Latitude</label><input class="field" id="meterLatitude" type="number" step="any" required /></div>
+            <div><label class="form-label" for="meterLongitude">Longitude</label><input class="field" id="meterLongitude" type="number" step="any" required /></div>
+            <div class="full"><label class="form-label" for="meterStatus">Status</label><select class="select" id="meterStatus"><option value="offline">Offline</option></select></div>
+            <div class="full"><button class="btn btn-primary" type="submit">Record smart-meter signal</button></div>
+          </form><div class="status-message" id="meterResult" aria-live="polite"></div>
+        </article>
+        <article class="card card-pad"><div class="section-head"><h2>Restoration confirmation state</h2></div>
+          <label class="form-label" for="incidentSelect">Selected stored incident</label><select class="select" id="incidentSelect"></select>
+          <p class="form-help">Sets the canonical incident to Awaiting Confirmation so linked residents see Yes/No controls.</p>
+          <button class="btn btn-primary" id="setAwaiting" type="button" style="margin-top:15px">Set Awaiting Confirmation</button>
+          <div class="status-message" id="restorationResult" aria-live="polite"></div>
+        </article>
+        <article class="card card-pad"><div class="section-head"><h2>Reset application data</h2></div>
+          <p class="form-help">Clears Secure Report reports, incidents, smart-meter signals, technician session data, and captured photo blobs. Other browser data is not touched.</p>
+          <button class="btn btn-outline" id="resetDemonstration" type="button">Reset application data</button>
+          <div class="status-message" id="resetResult" aria-live="polite"></div>
+        </article>
+      </section>
+    </div></main>
+    <script src="../js/data-store.js?v=20260921-hardening2"></script><script src="../js/media-store.js?v=20260921-hardening2"></script><script src="../js/admin-common.js?v=20260921-hardening2"></script><script src="../js/demo-tools.js?v=20260921-hardening2"></script>
+  </body>
+</html>

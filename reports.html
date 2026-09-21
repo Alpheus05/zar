@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>PowerGrid | Reports</title><link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../css/app.css?v=20260921-hardening1" /><link rel="stylesheet" href="../css/branding.css?v=20260921-hardening1" /></head>
+  <body>
+    <div class="mobile-bar"><div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div><button class="mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button></div>
+    <aside class="app-sidebar" id="sidebar"><div class="sidebar-brand"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div><nav class="sidebar-nav"><a href="index.html"><span class="nav-symbol">⌂</span>Dashboard</a><a href="incidents.html"><span class="nav-symbol">◈</span>Incidents</a><a class="active" href="reports.html"><span class="nav-symbol">▤</span>Reports</a><a href="analytics.html"><span class="nav-symbol">⌁</span>Analytics</a><a href="operations-tools.html"><span class="nav-symbol">⚙</span>Operations Tools</a></nav><div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>City of Tshwane</strong><span>Planning a better tomorrow</span></div></div></aside><div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="app-main"><div class="page-wrap"><header class="page-head"><div><h1>Reports</h1><p id="reportsDescription">Human-submitted evidence linked to canonical outage incidents.</p></div><a class="btn btn-primary" href="incidents.html?manual=1">＋ Log manual report</a></header>
+      <section class="card table-card"><div class="table-scroll"><table class="data-table"><thead><tr><th>Report ID</th><th>Submitted</th><th>Source</th><th>Area / location</th><th>Description / issue</th><th>Evidence</th><th>Linked incident</th><th>Review state</th><th>Actions</th></tr></thead><tbody id="reportRows"></tbody></table></div><div class="card-pad tiny muted" id="reportCount"></div></section>
+    </div></main>
+    <script src="../js/data-store.js?v=20260921-hardening1"></script><script src="../js/admin-common.js?v=20260921-hardening1"></script><script src="../js/admin-reports.js?v=20260921-hardening1"></script>
+  </body>
+</html>

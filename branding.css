@@ -1,0 +1,36 @@
+/* Shared PowerGrid brand presentation. Business logic and page layout are intentionally unaffected. */
+.powergrid-brand-mark {
+  width: 38px;
+  height: 38px;
+  display: block;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.powergrid-full-logo {
+  width: min(250px, 78vw);
+  height: auto;
+  display: block;
+}
+
+.powergrid-form-logo {
+  width: min(190px, 72vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+.brand .powergrid-brand-mark,
+.topbar .powergrid-brand-mark {
+  width: 46px;
+  height: 46px;
+}
+
+.mobile-bar .powergrid-brand-mark {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 520px) {
+  .powergrid-full-logo { width: min(220px, 72vw); }
+}

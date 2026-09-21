@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerGrid | Create Account</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/create-account.css">
+    <link rel="stylesheet" href="../css/branding.css">
+</head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <img class="powergrid-form-logo" src="../assets/powergrid-logo.svg" alt="PowerGrid" />
+        <h1>Create account</h1>
+        <p>Set up your PowerGrid administrator profile.</p>
+      </div>
+
+      <div class="form-body">
+        <form id="accountForm">
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" type="text" placeholder="Jane Smith" required />
+          </div>
+
+          <div class="field">
+            <label for="role">Role</label>
+            <select id="role">
+              <option>Administrator</option>
+              <option>Operations Manager</option>
+              <option>Supervisor</option>
+              <option>Field Team Lead</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="email">Work email</label>
+            <input id="email" type="email" placeholder="jane@powergrid.co.za" required />
+          </div>
+
+          <div class="field">
+            <label for="agency">Agency / department</label>
+            <input id="agency" type="text" placeholder="City Services Division" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="tel" placeholder="+27 82 123 4567" />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Create password" required />
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" type="password" placeholder="Repeat password" required />
+          </div>
+
+          <div class="status-box" id="statusBox" aria-live="polite"></div>
+
+          <button class="primary-btn full" type="submit">Create account</button>
+          <a class="secondary-link full" href="signin.html">Back to sign in</a>
+          <div class="bottom-link full">Already have an account? <a href="signin.html">Sign in</a></div>
+        </form>
+      </div>
+    </div>
+    <script src="../js/create-account.js"></script>
+  </body>
+</html>

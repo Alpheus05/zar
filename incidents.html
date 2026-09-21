@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerGrid | Incidents</title><link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../css/app.css?v=20260921-hardening1" /><link rel="stylesheet" href="../css/branding.css?v=20260921-hardening1" />
+  </head>
+  <body>
+    <div class="mobile-bar"><div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div><button class="mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button></div>
+    <aside class="app-sidebar" id="sidebar">
+      <div class="sidebar-brand"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div>
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <a href="index.html"><span class="nav-symbol">⌂</span>Dashboard</a><a class="active" href="incidents.html"><span class="nav-symbol">◈</span>Incidents</a><a href="reports.html"><span class="nav-symbol">▤</span>Reports</a><a href="analytics.html"><span class="nav-symbol">⌁</span>Analytics</a><a href="operations-tools.html"><span class="nav-symbol">⚙</span>Operations Tools</a>
+      </nav>
+      <div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>City of Tshwane</strong><span>Planning a better tomorrow</span></div></div>
+    </aside><div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="app-main"><div class="page-wrap">
+      <header class="page-head"><div><h1>Incidents</h1><p>All outage incidents across Tshwane.</p></div><button class="btn btn-primary" id="manualReportButton" type="button">＋ Log manual report</button></header>
+      <section class="filters" aria-label="Incident filters">
+        <input class="field" id="incidentSearch" type="search" placeholder="Search incidents..." />
+        <select class="select" id="statusFilter"><option value="">All status</option></select>
+        <select class="select" id="priorityFilter"><option value="">All priority</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select>
+        <select class="select" id="areaFilter"><option value="">All areas</option></select>
+      </section>
+      <section class="card table-card">
+        <div class="table-scroll"><table class="data-table"><thead><tr><th>ID</th><th>Area</th><th>Outage type</th><th>Priority</th><th>Reports</th><th>Status</th><th>Last updated</th><th>Actions</th></tr></thead><tbody id="incidentRows"></tbody></table></div>
+        <div class="card-pad tiny muted" id="incidentCount"></div>
+      </section>
+      <div class="status-message" id="manualReportFeedback" aria-live="polite"></div>
+    </div></main>
+    <div class="modal-overlay" id="manualReportModal" hidden>
+      <section class="modal-dialog card" role="dialog" aria-modal="true" aria-labelledby="manualReportTitle">
+        <header class="modal-head"><div><h2 id="manualReportTitle">Log manual report</h2><p>Record a human-submitted outage report without leaving the admin workspace.</p></div><button class="modal-close" id="manualReportClose" type="button" aria-label="Close dialog">×</button></header>
+        <form id="manualReportForm" class="form-grid modal-body">
+          <div><label class="form-label" for="manualReporter">Reporter / contact name</label><input class="field" id="manualReporter" autocomplete="name" /></div>
+          <div><label class="form-label" for="manualContact">Phone / contact</label><input class="field" id="manualContact" autocomplete="tel" /></div>
+          <div><label class="form-label" for="manualArea">Location / service area</label><select class="select" id="manualArea" required></select></div>
+          <div><label class="form-label" for="manualOutageType">Outage type</label><select class="select" id="manualOutageType" required><option>Power outage</option><option>Transformer / substation fault</option><option>Cable fault</option><option>Local supply fault</option><option>Prepaid meter problem</option><option>Unknown / Other</option></select></div>
+          <div class="full"><label class="form-label" for="manualDescription">Description</label><textarea class="textarea" id="manualDescription" required></textarea></div>
+          <div class="full"><label class="form-label" for="manualAccount">Meter / account number (optional)</label><input class="field" id="manualAccount" /></div>
+          <div><label class="form-label" for="manualLatitude">Latitude (optional)</label><input class="field" id="manualLatitude" type="number" step="any" /></div>
+          <div><label class="form-label" for="manualLongitude">Longitude (optional)</label><input class="field" id="manualLongitude" type="number" step="any" /></div>
+          <div class="full modal-actions"><button class="btn btn-outline" id="manualReportCancel" type="button">Cancel</button><button class="btn btn-primary" type="submit">Create report</button></div>
+        </form>
+      </section>
+    </div>
+    <script src="../js/data-store.js?v=20260921-hardening1"></script><script src="../js/admin-common.js?v=20260921-hardening1"></script><script src="../js/incidents.js?v=20260921-hardening1"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerGrid | Verify / Deduplicate</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/verify-deduplicate.css">
+    <link rel="stylesheet" href="../css/branding.css">
+</head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div class="brand">
+          <img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" />
+          <div><strong>PowerGrid</strong></div>
+        </div>
+        <nav class="nav" aria-label="Workflow navigation">
+          <a href="home.html">Home</a>
+          <a href="report-outage.html">Report</a>
+          <a href="verify-deduplicate.html">Verify</a>
+          <a href="prioritise.html">Prioritise</a>
+          <a href="dispatch.html">Dispatch</a>
+          <a href="assign-technician.html">Assign</a>
+          <a href="track.html">Track</a>
+          <a href="repair.html">Repair</a>
+          <a href="notify-customer.html">Notify</a>
+          <a href="close.html">Close</a>
+          <a href="analyse.html">Analyse</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="header-card">
+          <span class="eyebrow">Step 2</span>
+          <h1>Verify / Deduplicate</h1>
+          <p class="subtitle">Check for repeat cases, similar incidents, and recent service records before escalating the report to the field team.</p>
+        </section>
+
+        <section class="content">
+          <div class="panel">
+            <div class="alert">Duplicate alert: 2 similar incidents found in the same service area in the last 4 hours.</div>
+            <div class="list">
+              <div class="item">
+                <div class="meta">
+                  <strong>OUT-1001</strong><br />Pretoria West · Electricity
+                </div>
+                <span class="pill green">Matched</span>
+              </div>
+              <div class="item">
+                <div class="meta">
+                  <strong>OUT-1002</strong><br />Pretoria West · Electricity
+                </div>
+                <span class="pill amber">Review</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel mini-grid">
+            <div class="mini-card">
+              <strong>Validation status</strong>
+              <p style="color: var(--muted); margin: 8px 0 0;">Customer profile confirmed. Service type verified. Duplicate check passed with review required.</p>
+            </div>
+            <div class="mini-card">
+              <strong>Recommended action</strong>
+              <p style="color: var(--muted); margin: 8px 0 0;">Merge near-identical cases into one active incident and continue with priority classification.</p>
+            </div>
+          </aside>
+        </section>
+
+        <div class="step-links">
+          <a class="btn secondary" href="prioritise.html">Next: Prioritise</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

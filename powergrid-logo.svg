@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 96" role="img" aria-labelledby="title desc">
+  <title id="title">PowerGrid</title>
+  <desc id="desc">PowerGrid wordmark with a green circuit bug technology symbol.</desc>
+  <g transform="translate(4 4) scale(.55)" fill="none" stroke="#58A44B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M65 35C64 25 59 20 51 17"/><circle cx="46" cy="15" r="6"/>
+    <path d="M95 35C96 25 101 20 109 17"/><circle cx="114" cy="15" r="6"/>
+    <path d="M34 72L17 55V42"/><circle cx="17" cy="35" r="6"/>
+    <path d="M32 111L14 127"/><circle cx="10" cy="131" r="6"/>
+    <path d="M51 128L40 139V148"/><circle cx="40" cy="153" r="5"/>
+    <path d="M126 72L143 55V42"/><circle cx="143" cy="35" r="6"/>
+    <path d="M128 111L146 127"/><circle cx="150" cy="131" r="6"/>
+    <path d="M109 128L120 139V148"/><circle cx="120" cy="153" r="5"/>
+    <path d="M53 62C56 42 66 32 80 32C94 32 104 42 107 62"/>
+    <path d="M78 65H28C22 65 19 69 19 75V89C19 113 36 129 57 126C67 125 74 120 80 112"/>
+    <path d="M82 65H132C138 65 141 69 141 75V89C141 113 124 129 103 126C93 125 86 120 80 112"/>
+    <path d="M80 64V139"/><path d="M52 64V101C52 124 64 139 80 139C96 139 108 124 108 101V64"/>
+    <path d="M47 82L36 92L47 102"/><path d="M113 82L124 92L113 102"/><path d="M103 81L96 103"/>
+    <path d="M66 82V112"/><circle cx="66" cy="77" r="5"/><circle cx="66" cy="117" r="5"/>
+    <path d="M94 82V112"/><circle cx="94" cy="77" r="5"/><circle cx="94" cy="117" r="5"/>
+  </g>
+  <text x="106" y="61" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="750" letter-spacing="-1.4">PowerGrid</text>
+</svg>

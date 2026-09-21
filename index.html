@@ -3,12 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=html/user-home.html" />
-    <title>Secure Report | PowerGrid</title>
-    <link rel="icon" href="assets/powergrid-icon.svg" type="image/svg+xml" />
+    <title>PowerGrid | Admin Dashboard</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/app.css?v=20260921-hardening1" />
+    <link rel="stylesheet" href="../css/branding.css?v=20260921-hardening1" />
   </head>
   <body>
-    <p>Opening Secure Reportâ€¦ <a href="html/user-home.html">Continue to the resident service</a>.</p>
-    <script>window.location.replace("html/user-home.html");</script>
+    <div class="mobile-bar">
+      <div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div>
+      <button class="mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button>
+    </div>
+    <aside class="app-sidebar" id="sidebar">
+      <div class="sidebar-brand"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div>
+      <nav class="sidebar-nav" aria-label="Admin navigation">
+        <a class="active" href="index.html"><span class="nav-symbol">⌂</span>Dashboard</a>
+        <a href="incidents.html"><span class="nav-symbol">◈</span>Incidents</a>
+        <a href="reports.html"><span class="nav-symbol">▤</span>Reports</a>
+        <a href="analytics.html"><span class="nav-symbol">⌁</span>Analytics</a>
+        <a href="operations-tools.html"><span class="nav-symbol">⚙</span>Operations Tools</a>
+      </nav>
+      <div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>City of Tshwane</strong><span>Planning a better tomorrow</span></div></div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="app-main">
+      <div class="page-wrap">
+        <header class="page-head">
+          <div><h1>Good morning.</h1><p>Here’s the current outage situation across Tshwane.</p></div>
+          <div class="system-summary">
+            <!-- Uptime is display-only and is not used by outage logic. -->
+            <div class="system-line"><span class="health-dot" aria-hidden="true"></span><strong>System online</strong></div>
+            <div class="uptime-line">96.2% uptime</div>
+            <div class="date-line"><span class="environment-label">Operations console</span><span id="currentDate"></span></div>
+          </div>
+        </header>
+
+        <section class="kpi-grid" aria-label="Outage summary">
+          <a class="card kpi kpi-link" href="incidents.html?status=active" aria-label="View all active incidents"><span class="kpi-icon">◉</span><div class="kpi-label">Active incidents</div><div class="kpi-value" id="activeKpi">0</div><div class="kpi-note good">View current incidents</div></a>
+          <a class="card kpi kpi-link danger" href="incidents.html?priority=critical" aria-label="View all critical incidents"><span class="kpi-icon">▲</span><div class="kpi-label">Critical</div><div class="kpi-value" id="criticalKpi">0</div><div class="kpi-note">Requires immediate attention</div></a>
+          <a class="card kpi kpi-link" href="reports.html?date=today" aria-label="View human reports submitted today"><span class="kpi-icon">▤</span><div class="kpi-label">Reports today</div><div class="kpi-value" id="reportsKpi">0</div><div class="kpi-note">Human reports received</div></a>
+          <a class="card kpi kpi-link success" href="incidents.html?status=resolved&amp;date=today" aria-label="View incidents resolved today"><span class="kpi-icon">✓</span><div class="kpi-label">Resolved today</div><div class="kpi-value" id="resolvedKpi">0</div><div class="kpi-note good">View today’s restorations</div></a>
+        </section>
+        <section class="workflow-summary" aria-label="Workflow summary">
+          <a href="incidents.html?review=pending"><span>Pending review</span><strong id="pendingReviewKpi">0</strong></a>
+          <a href="incidents.html?review=deferred"><span>Saved for later</span><strong id="deferredKpi">0</strong></a>
+          <a href="incidents.html?status=awaiting%20dispatch"><span>Awaiting dispatch</span><strong id="awaitingDispatchKpi">0</strong></a>
+          <a href="incidents.html?work=active"><span>Technician active</span><strong id="technicianActiveKpi">0</strong></a>
+          <a href="incidents.html?status=awaiting%20confirmation"><span>Awaiting confirmation</span><strong id="awaitingConfirmationKpi">0</strong></a>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="card card-pad">
+            <div class="section-head"><h2>Outage map</h2><span class="tiny muted">Click a pin to view incident</span></div>
+            <div class="map-canvas" id="outageMap">
+              <div class="map-legend">
+                <div><span class="legend-dot" style="background:#ef4444"></span>Critical</div>
+                <div><span class="legend-dot" style="background:#f97316"></span>High</div>
+                <div><span class="legend-dot" style="background:#fbbf24"></span>Medium</div>
+                <div><span class="legend-dot" style="background:#3b82f6"></span>Low</div>
+              </div>
+              <div id="mapPins"></div>
+            </div>
+          </article>
+          <article class="card card-pad">
+            <div class="section-head"><h2>Needs attention</h2><a href="incidents.html?attention=1">View all →</a></div>
+            <div class="attention-list" id="attentionList"></div>
+          </article>
+        </section>
+
+        <section class="card recent-activity-card">
+          <div class="section-head card-pad"><div><h2>Recent activity</h2><p class="section-subtitle">Human reports and smart-meter signals, newest first.</p></div></div>
+          <div class="activity-list" id="recentActivityList"></div>
+        </section>
+      </div>
+    </main>
+    <div class="modal-overlay report-alert-overlay" id="residentReportAlert" hidden aria-hidden="true">
+      <section class="modal-dialog report-alert-dialog card" id="residentReportDialog" role="dialog" aria-modal="true" aria-labelledby="reportAlertTitle" aria-describedby="reportAlertSummary" tabindex="-1">
+        <header class="report-alert-head">
+          <div><span class="eyebrow">New outage report</span><h2 id="reportAlertTitle">Resident report awaiting review</h2><p id="reportAlertSummary">Review the incoming report and explicitly acknowledge it.</p></div>
+          <span class="report-queue-count" id="reportQueueCount" aria-live="polite"></span>
+        </header>
+        <div class="report-alert-body">
+          <div class="report-alert-identity"><div><strong id="alertReportId">Report</strong><span id="alertReportArea"></span></div><span id="alertReportTime"></span></div>
+          <dl class="report-alert-details">
+            <div><dt>Outage type</dt><dd id="alertOutageType"></dd></div>
+            <div class="report-alert-description"><dt>Description</dt><dd id="alertDescription"></dd></div>
+            <div><dt>Location</dt><dd id="alertLocation"></dd></div>
+            <div><dt>Evidence</dt><dd id="alertEvidence"></dd></div>
+            <div><dt>Linked incident</dt><dd id="alertIncidentId"></dd></div>
+            <div><dt>Priority</dt><dd id="alertPriority"></dd></div>
+          </dl>
+          <div class="report-alert-reasons"><strong>Why this priority?</strong><ul id="alertPriorityReasons"></ul></div>
+        </div>
+        <footer class="report-alert-actions">
+          <a class="btn btn-outline" id="reviewIncidentButton">Review incident</a>
+          <button class="btn btn-primary" id="acknowledgeReportButton" type="button">Acknowledge report</button>
+        </footer>
+      </section>
+    </div>
+    <script src="../js/data-store.js?v=20260921-hardening1"></script>
+    <script src="../js/admin-common.js?v=20260921-hardening1"></script>
+    <script src="../js/admin-dashboard.js?v=20260921-hardening1"></script>
   </body>
 </html>

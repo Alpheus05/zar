@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>PowerGrid | Technician Workspace</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/branding.css?v=20260921-hardening1" />
+    <link rel="stylesheet" href="../css/app.css?v=20260921-hardening1" />
+    <link rel="stylesheet" href="../css/technician-dashboard.css?v=20260921-hardening1" />
+  </head>
+  <body data-screen="queue">
+    <div class="mobile-bar">
+      <div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div>
+      <button class="mobile-menu" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+
+    <aside class="app-sidebar technician-sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" />
+        <div><strong>PowerGrid</strong><span>Technician Workspace</span></div>
+      </div>
+      <nav class="sidebar-nav" aria-label="Technician navigation">
+        <a class="active" href="#jobs" data-sidebar-tab="active"><span class="nav-symbol">▣</span>My Jobs</a>
+        <a href="#completed" data-sidebar-tab="completed"><span class="nav-symbol">✓</span>Completed</a>
+      </nav>
+      <section class="technician-identity" aria-label="Signed-in technician">
+        <p class="identity-label">Technician</p>
+        <div class="identity-person"><span class="avatar" id="techInitials" aria-hidden="true">PG</span><span><strong id="techName">Technician</strong><small id="techMeta">Field services</small></span></div>
+        <div class="duty-line"><span class="health-dot"></span><span>On duty</span></div>
+      </section>
+      <div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="app-main technician-main" id="jobs">
+      <div class="page-wrap technician-wrap">
+        <header class="page-head technician-page-head">
+          <div><h1>My Jobs</h1><p>Manage assigned incidents and update repair progress.</p></div>
+          <div class="technician-system"><div class="system-line"><span class="health-dot"></span><span>System online</span></div><strong id="headerTechName">Technician</strong></div>
+        </header>
+
+        <section class="job-summary" aria-label="Job summary">
+          <article class="summary-card"><span>Assigned to me</span><strong id="summaryAssigned">0</strong></article>
+          <article class="summary-card"><span>Awaiting acceptance</span><strong id="summaryAwaiting">0</strong></article>
+          <article class="summary-card"><span>In progress</span><strong id="summaryProgress">0</strong></article>
+          <article class="summary-card"><span>Completed today</span><strong id="summaryCompleted">0</strong></article>
+        </section>
+
+        <section class="filters" aria-label="Filter assigned jobs">
+          <div class="filter-status"><span class="filter-label">Status</span><div class="tabs" id="tabs" role="group" aria-label="Job status"></div></div>
+          <label><span>Priority</span><select id="priorityFilter"><option value="all">All priorities</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select></label>
+          <label class="search"><span>Search</span><input id="jobSearch" type="search" placeholder="Search jobs..." autocomplete="off" /></label>
+        </section>
+
+        <div class="workspace">
+          <section class="queue-pane" aria-label="My assigned jobs">
+            <div class="pane-head"><div><p class="eyebrow">Job queue</p><h2>Assigned incidents</h2><p class="count" id="jobCount"></p></div></div>
+            <div id="queueBody"></div>
+          </section>
+          <section class="detail-pane" id="detailPane" aria-label="Job details"></section>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="actionDialog" aria-labelledby="dialogTitle">
+      <form id="dialogForm">
+        <h2 id="dialogTitle"></h2>
+        <div id="dialogBody"></div>
+        <div class="dialog-actions"><button type="button" class="btn" id="dialogCancel">Cancel</button><button type="submit" class="btn primary" id="dialogSubmit">Save</button></div>
+      </form>
+    </dialog>
+
+    <script src="../js/data-store.js?v=20260921-hardening2"></script>
+    <script src="../js/media-store.js?v=20260921-hardening1"></script>
+    <script src="../js/camera-component.js?v=20260921-hardening1"></script>
+    <script src="../js/technician-dashboard.js?v=20260921-hardening2"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>PowerGrid | Report an Outage</title><link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../css/app.css?v=20260921-hardening1" /><link rel="stylesheet" href="../css/branding.css?v=20260921-hardening1" /></head>
+  <body>
+    <div class="mobile-bar"><div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div><button class="mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button></div>
+    <aside class="app-sidebar resident-sidebar" id="sidebar">
+      <div class="sidebar-brand"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div>
+      <nav class="sidebar-nav" aria-label="Resident navigation"><a href="user-home.html"><span class="nav-symbol">⌂</span>Home</a><a class="active" href="user-report.html"><span class="nav-symbol">⚡</span>Report outage</a><a href="user-dashboard.html"><span class="nav-symbol">▣</span>My reports</a></nav>
+      <div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>City of Tshwane</strong><span>Planning a better tomorrow</span></div></div>
+    </aside><div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="resident-main"><div class="resident-wrap">
+      <header class="page-head"><div><h1>Report an outage</h1><p>Help us restore power faster.</p></div></header>
+      <section class="card report-form-card">
+        <form id="reportForm">
+          <div class="form-section">
+            <div class="form-grid">
+              <div><label class="form-label" for="electricalIssue">Select outage type</label><select class="select" id="electricalIssue" required><option value="">Select an outage type</option><option>Power outage</option><option>Streetlight not working</option><option>Damaged power line</option><option>Transformer / substation fault</option><option>Prepaid meter problem</option><option>Electrical box / equipment damage</option><option>Sparking or electrical hazard</option><option>Other electrical issue</option></select></div>
+              <div><label class="form-label" for="issueType">Affected scope</label><select class="select" id="issueType" required><option value="">Select affected scope</option><option>Household issue</option><option>Public issue</option></select></div>
+              <div class="full"><label class="form-label" for="description">Describe the issue</label><textarea class="textarea" id="description" maxlength="5000" placeholder="E.g. No electricity in my street, transformer explosion, exposed cable…" required></textarea><p class="form-help">Clear descriptions help the explainable priority rules assess urgency.</p></div>
+            </div>
+          </div>
+          <div class="form-section">
+            <label class="form-label">Location</label>
+            <div class="location-row"><button class="btn btn-soft" id="captureLocationButton" type="button">⌖ Use my current location</button><span class="badge badge-reported" id="locationStatus">Not captured</span></div>
+            <div class="location-result" id="locationText">Your browser will request location permission.</div>
+          </div>
+          <div class="form-section">
+            <label class="form-label">Fault photo <span class="muted">(optional)</span></label>
+            <div class="camera-field" id="residentCameraField">
+              <div class="camera-empty" id="residentCameraEmpty"><span class="camera-field-icon" aria-hidden="true">&#128247;</span><div><strong>Photograph the fault</strong><p>Use your device camera to add visual evidence. Gallery and file uploads are not used.</p></div></div>
+              <img id="photoPreview" class="camera-field-preview" alt="Captured outage evidence" hidden />
+              <div class="camera-field-actions"><button class="btn btn-primary" id="takeResidentPhoto" type="button">Take photo</button><button class="btn btn-soft" id="removeResidentPhoto" type="button" hidden>Remove photo</button></div>
+              <p class="form-help" id="photoAnalysisState" aria-live="polite">No photo captured.</p>
+            </div>
+          </div>
+          <div class="form-section submit-row"><a class="btn btn-outline" href="user-dashboard.html">Cancel</a><button class="btn btn-primary" type="submit">Submit report</button></div>
+        </form>
+      </section>
+      <div class="toast" id="reportToast" aria-live="polite"></div>
+    </div></main>
+    <script src="../js/data-store.js?v=20260921-hardening1"></script><script src="../js/media-store.js?v=20260921-hardening1"></script><script src="../js/camera-component.js?v=20260921-hardening1"></script><script src="../js/user-report.js?v=20260921-hardening1"></script><script src="../js/user-shell.js?v=20260921-hardening1"></script>
+  </body>
+</html>

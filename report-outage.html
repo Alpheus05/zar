@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerGrid | Report Outage</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/report-outage.css">
+    <link rel="stylesheet" href="../css/branding.css">
+</head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div class="brand">
+          <img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" />
+          <div><strong>PowerGrid</strong></div>
+        </div>
+        <nav class="nav" aria-label="Workflow navigation">
+          <a href="home.html">Home</a>
+          <a href="report-outage.html">Report</a>
+          <a href="verify-deduplicate.html">Verify</a>
+          <a href="prioritise.html">Prioritise</a>
+          <a href="dispatch.html">Dispatch</a>
+          <a href="assign-technician.html">Assign</a>
+          <a href="track.html">Track</a>
+          <a href="repair.html">Repair</a>
+          <a href="notify-customer.html">Notify</a>
+          <a href="close.html">Close</a>
+          <a href="analyse.html">Analyse</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="header-card">
+          <span class="eyebrow">Step 1</span>
+          <h1>Report outage</h1>
+          <p class="subtitle">Capture service disruption details, customer information, impact, and location so the case can be validated and routed quickly.</p>
+        </section>
+
+        <section class="content">
+          <div class="panel">
+            <form>
+              <div class="field">
+                <label for="customerName">Customer name</label>
+                <input id="customerName" type="text" value="Naledi Mokoena" />
+              </div>
+              <div class="field">
+                <label for="accountNo">Account no.</label>
+                <input id="accountNo" type="text" value="TWN-48291" />
+              </div>
+              <div class="field full">
+                <label for="location">Location / service area</label>
+                <input id="location" type="text" value="Pretoria West, Region 5" />
+              </div>
+              <div class="field">
+                <label for="serviceType">Service type</label>
+                <select id="serviceType">
+                  <option>Electricity</option>
+                  <option>Water</option>
+                  <option>Sanitation</option>
+                  <option>Street lighting</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="severity">Severity</label>
+                <select id="severity">
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Critical</option>
+                  <option>Low</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="customers">Affected customers</label>
+                <input id="customers" type="number" value="210" />
+              </div>
+              <div class="field">
+                <label for="contact">Contact details</label>
+                <input id="contact" type="text" value="082 451 1234" />
+              </div>
+              <div class="field full">
+                <label for="details">Issue details</label>
+                <textarea id="details">Power outage affecting multiple homes in the area and nearby traffic light control systems have gone dark.</textarea>
+              </div>
+              <div class="field full">
+                <button class="btn primary" type="button">Submit outage report</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="panel">
+            <div class="stats">
+              <div class="stat-box">
+                <span>Queued cases</span>
+                <strong>16</strong>
+              </div>
+              <div class="stat-box">
+                <span>Avg. report time</span>
+                <strong>6 min</strong>
+              </div>
+              <div class="stat-box">
+                <span>Priority backlog</span>
+                <strong>4</strong>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <div class="step-links">
+          <a class="btn secondary" href="verify-deduplicate.html">Next: Verify / Deduplicate</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

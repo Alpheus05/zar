@@ -1,0 +1,1351 @@
+/* =========================================================
+   POWERGRID - USER SIDE
+   Based on the original Tshwane / e-Tshwane visual style
+   ========================================================= */
+
+/* =========================================================
+   1. GLOBAL VARIABLES
+   ========================================================= */
+
+:root {
+  --bg: #0f172a;
+  --bg-alt: #111827;
+  --green: #4fa447;
+
+  --green-dark: #3f8538;
+
+  --green-light: #eef8ed;
+
+  --black: #17130c;
+
+  --text: #252525;
+
+  --muted: #707070;
+
+  --line: #dedede;
+
+  --white: #ffffff;
+
+  --danger: #d84a4a;
+
+  --warning: #d89b2b;
+
+  --success: #4fa447;
+
+  --shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+
+  padding: 0;
+
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  color: var(--text);
+
+  background: #f6f6f6;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* =========================================================
+   3. MAIN APPLICATION
+   ========================================================= */
+
+.user-app {
+  min-height: 100vh;
+}
+
+/* =========================================================
+   4. MOBILE TOP BAR
+   ========================================================= */
+
+.mobile-topbar {
+  display: none;
+
+  height: 70px;
+
+  background: var(--black);
+
+  color: white;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 18px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 30;
+}
+
+.mobile-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.mobile-brand-mark {
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: var(--green-dark);
+
+  display: grid;
+
+  place-items: center;
+
+  font-weight: 900;
+
+  font-size: 20px;
+}
+
+.menu-btn {
+  width: 44px;
+
+  height: 44px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: transparent;
+
+  color: white;
+
+  border-radius: 8px;
+
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   5. SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  width: 260px;
+
+  background: linear-gradient(135deg, var(--bg) 0%, #172554 100%);
+
+  color: white;
+
+  position: fixed;
+
+  inset: 0 auto 0 0;
+
+  z-index: 40;
+
+  display: flex;
+
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  padding: 22px 16px 18px;
+}
+
+/* =========================================================
+   SIDEBAR BRAND
+   ========================================================= */
+
+.sidebar-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 4px 10px 28px;
+}
+
+.tshwane-mark {
+  width: 48px;
+
+  height: 48px;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: var(--bg);
+
+  display: grid;
+
+  place-items: center;
+
+  font-weight: 900;
+
+  font-size: 20px;
+}
+
+.sidebar-brand strong {
+  display: block;
+
+  font-size: 17px;
+}
+
+.sidebar-brand span {
+  display: block;
+
+  color: #bdbdbd;
+
+  font-size: 11px;
+
+  margin-top: 3px;
+}
+
+/* =========================================================
+   6. SIDEBAR NAVIGATION
+   ========================================================= */
+
+.side-nav {
+  display: grid;
+
+  gap: 7px;
+}
+
+.side-nav a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  min-height: 48px;
+
+  padding: 11px 13px;
+
+  color: #cfcfcf;
+
+  border-radius: 9px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.side-nav a:hover {
+  color: white;
+
+  background: var(--muted);
+}
+
+.side-nav a.active {
+  color: white;
+
+  background: var(--bg-alt);
+}
+
+.nav-icon {
+  width: 23px;
+
+  text-align: center;
+
+  font-size: 18px;
+}
+
+/* =========================================================
+   7. LOGOUT
+   ========================================================= */
+
+.logout {
+  margin-top: auto;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding-top: 14px;
+}
+
+.logout a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  min-height: 48px;
+
+  padding: 11px 13px;
+
+  color: #ddd;
+
+  border-radius: 9px;
+
+  font-weight: 600;
+}
+
+.logout a:hover {
+  background: #39201d;
+
+  color: white;
+}
+
+/* =========================================================
+   8. MAIN CONTENT
+   ========================================================= */
+
+.main {
+  margin-left: 260px;
+
+  min-height: 100vh;
+}
+
+/* =========================================================
+   9. HEADER
+   ========================================================= */
+
+.main-header {
+  min-height: 78px;
+
+  background: white;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 16px 34px;
+}
+
+.page-title h1 {
+  margin: 0;
+
+  font-size: 26px;
+
+  font-weight: 500;
+
+  color: var(--bg);
+}
+
+.page-title p {
+  margin: 5px 0 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   10. PROFILE
+   ========================================================= */
+
+.profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 13px;
+}
+
+.profile span {
+  color: #777;
+}
+
+.avatar {
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: var(--bg-alt);
+
+  color: white;
+
+  display: grid;
+
+  place-items: center;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   11. PAGE CONTENT
+   ========================================================= */
+
+.content {
+  padding: 30px 34px 50px;
+
+  max-width: 1250px;
+}
+
+/* =========================================================
+   12. CARD
+   ========================================================= */
+
+.card {
+  background: white;
+
+  border: 1px solid #e8e8e8;
+
+  border-radius: 14px;
+
+  box-shadow: var(--shadow);
+}
+
+.card-pad {
+  padding: 24px;
+}
+
+/* =========================================================
+   13. SECTION HEADINGS
+   ========================================================= */
+
+.section-title {
+  margin: 0;
+
+  font-size: 21px;
+
+  font-weight: 500;
+}
+
+.section-subtitle {
+  margin: 6px 0 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   14. DASHBOARD STATISTICS
+   ========================================================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+.stat {
+  padding: 20px;
+
+  border-left: 4px solid var(--bg);
+}
+
+.stat-label {
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+.stat-value {
+  margin-top: 8px;
+
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   15. DASHBOARD UPDATES
+   ========================================================= */
+
+.update-list {
+  display: grid;
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.update {
+  display: grid;
+
+  grid-template-columns:
+    44px
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 14px;
+
+  border: 1px solid #ececec;
+
+  border-radius: 11px;
+}
+
+.update-icon {
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 10px;
+
+  background: var(--green-light);
+
+  color: var(--green-dark);
+
+  display: grid;
+
+  place-items: center;
+
+  font-weight: 800;
+}
+
+.update h3 {
+  margin: 0 0 4px;
+
+  font-size: 14px;
+}
+
+.update p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   16. BADGES
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  border-radius: 999px;
+
+  padding: 6px 10px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.badge.green {
+  background: #eaf6e8;
+
+  color: #397b33;
+}
+
+.badge.orange {
+  background: #fff4dc;
+
+  color: #9a6a0f;
+}
+
+.badge.red {
+  background: #fdeaea;
+
+  color: #a33a3a;
+}
+
+.badge.gray {
+  background: #eeeeee;
+
+  color: #666;
+}
+
+/* =========================================================
+   17. REPORT FORM
+   ========================================================= */
+
+.form-card {
+  max-width: 850px;
+}
+
+.form-section {
+  padding: 24px;
+
+  border-bottom: 1px solid #ededed;
+}
+
+.form-section:last-child {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   18. FORM LABELS
+   ========================================================= */
+
+.form-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 700;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   19. FORM HELP
+   ========================================================= */
+
+.field-help {
+  color: var(--muted);
+
+  font-size: 12px;
+
+  margin: 7px 0 0;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   20. INPUTS
+   ========================================================= */
+
+.select,
+.input,
+.textarea {
+  width: 100%;
+
+  border: 1px solid #cfcfcf;
+
+  border-radius: 9px;
+
+  padding: 13px 14px;
+
+  background: white;
+
+  outline: none;
+
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* INPUT FOCUS */
+
+.select:focus,
+.input:focus,
+.textarea:focus {
+  border-color: var(--green);
+
+  box-shadow: 0 0 0 3px rgba(79, 164, 71, 0.12);
+}
+
+/* =========================================================
+   21. TEXTAREA
+   ========================================================= */
+
+.textarea {
+  min-height: 130px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   22. FORM GRID
+   ========================================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 20px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+/* =========================================================
+   23. LOCATION
+   ========================================================= */
+
+.location-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  background: var(--green-light);
+
+  border: 1px solid #cfe7cb;
+
+  padding: 14px;
+
+  border-radius: 9px;
+}
+
+.location-icon {
+  font-size: 22px;
+}
+
+.location-box strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.location-box span {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  margin-top: 3px;
+}
+
+/* =========================================================
+   24. PHOTO UPLOAD
+   ========================================================= */
+
+.photo-upload {
+  border: 2px dashed #c9c9c9;
+
+  border-radius: 11px;
+
+  padding: 22px;
+
+  text-align: center;
+
+  background: #fafafa;
+
+  transition: border 0.2s ease;
+}
+
+.photo-upload:hover {
+  border-color: var(--green);
+}
+
+.photo-upload input {
+  display: none;
+}
+
+.upload-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  border-radius: 8px;
+
+  background: white;
+
+  border: 1px solid #ccc;
+
+  cursor: pointer;
+
+  font-weight: 700;
+}
+
+.upload-btn:hover {
+  border-color: var(--green);
+
+  color: var(--green-dark);
+}
+
+/* =========================================================
+   25. IMAGE PREVIEW
+   ========================================================= */
+
+.preview {
+  display: none;
+
+  margin: 15px auto 0;
+
+  max-width: 260px;
+
+  max-height: 170px;
+
+  border-radius: 8px;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   26. BUTTONS
+   ========================================================= */
+
+.submit-row {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+.btn {
+  border: 0;
+
+  border-radius: 9px;
+
+  padding: 13px 20px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+}
+
+.btn-secondary {
+  background: #eee;
+
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #ddd;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   27. AI INFORMATION BOX
+   ========================================================= */
+
+.ai-note {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 14px;
+
+  background: #f5f9f4;
+
+  border: 1px solid #dcebd9;
+
+  border-radius: 9px;
+
+  margin-top: 20px;
+}
+
+.ai-note strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.ai-note p {
+  margin: 4px 0 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   28. TRACKING GRID
+   ========================================================= */
+
+.track-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    0.85fr;
+
+  gap: 20px;
+}
+
+/* =========================================================
+   29. MAP
+   ========================================================= */
+
+.map {
+  min-height: 410px;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      30deg,
+      transparent 48%,
+      rgba(79, 164, 71, 0.16) 49%,
+      rgba(79, 164, 71, 0.16) 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 48%,
+      rgba(70, 70, 70, 0.1) 49%,
+      rgba(70, 70, 70, 0.1) 51%,
+      transparent 52%
+    ),
+    #e9eee7;
+
+  background-size:
+    130px 130px,
+    170px 170px,
+    auto;
+
+  border: 1px solid #d8ddd6;
+}
+
+/* MAP ROAD */
+
+.map::before,
+.map::after {
+  content: "";
+
+  position: absolute;
+
+  background: rgba(100, 100, 100, 0.18);
+}
+
+.map::before {
+  width: 100%;
+
+  height: 10px;
+
+  top: 40%;
+
+  transform: rotate(-12deg);
+}
+
+.map::after {
+  height: 100%;
+
+  width: 9px;
+
+  left: 62%;
+
+  transform: rotate(22deg);
+}
+
+/* =========================================================
+   30. MAP LABEL
+   ========================================================= */
+
+.map-label {
+  position: absolute;
+
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+
+  color: #555;
+}
+
+/* =========================================================
+   31. MAP PINS
+   ========================================================= */
+
+.pin {
+  position: absolute;
+
+  z-index: 4;
+
+  width: 20px;
+
+  height: 20px;
+
+  border-radius: 50% 50% 50% 0;
+
+  transform: rotate(-45deg);
+
+  background: var(--green-dark);
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pin::after {
+  content: "";
+
+  width: 7px;
+
+  height: 7px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  position: absolute;
+
+  top: 6px;
+
+  left: 6px;
+}
+
+.pin.user {
+  background: #2867d8;
+}
+
+.pin.tech {
+  background: #e39a27;
+}
+
+/* =========================================================
+   32. LIVE ROUTE
+   ========================================================= */
+
+.live-line {
+  position: absolute;
+
+  z-index: 3;
+
+  height: 4px;
+
+  background: var(--green);
+
+  transform-origin: left center;
+
+  border-radius: 10px;
+}
+
+/* =========================================================
+   33. TRACKING PANEL
+   ========================================================= */
+
+.track-panel {
+  display: grid;
+
+  gap: 12px;
+}
+
+.track-status {
+  padding: 18px;
+}
+
+.track-status h3 {
+  margin: 0 0 7px;
+
+  font-size: 15px;
+}
+
+.track-status p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   34. TIMELINE
+   ========================================================= */
+
+.timeline {
+  margin-top: 15px;
+
+  position: relative;
+
+  padding-left: 25px;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 7px;
+
+  top: 7px;
+
+  bottom: 7px;
+
+  width: 2px;
+
+  background: #d9e7d7;
+}
+
+.timeline-item {
+  position: relative;
+
+  padding: 0 0 20px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+
+  left: -23px;
+
+  top: 2px;
+
+  width: 16px;
+
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  border: 3px solid #eaf6e8;
+}
+
+.timeline-item.pending .timeline-dot {
+  background: #bbb;
+
+  border-color: #eee;
+}
+
+.timeline-item strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.timeline-item span:not(.timeline-dot) {
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+.reason-list {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.confirmation-actions .btn {
+  width: auto;
+}
+
+.restoration-card {
+  border-left: 4px solid var(--green);
+}
+
+.demo-tools {
+  border-style: dashed;
+  background: #fbfcfa;
+}
+
+.demo-feedback {
+  margin: 14px 0 0;
+  padding: 11px 13px;
+  border-radius: 8px;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 13px;
+}
+
+/* =========================================================
+   35. TOAST
+   ========================================================= */
+
+.toast {
+  display: none;
+
+  position: fixed;
+
+  right: 24px;
+
+  bottom: 24px;
+
+  z-index: 80;
+
+  background: #222;
+
+  color: white;
+
+  padding: 13px 16px;
+
+  border-radius: 9px;
+
+  box-shadow: var(--shadow);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   36. MOBILE OVERLAY
+   ========================================================= */
+
+.overlay {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 35;
+}
+
+/* =========================================================
+   37. MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .mobile-topbar {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+
+    transition: transform 0.2s ease;
+
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .overlay.open {
+    display: block;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .main-header {
+    padding: 15px 20px;
+  }
+
+  .content {
+    padding: 22px 18px 40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .track-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   38. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .page-title h1 {
+    font-size: 22px;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full {
+    grid-column: auto;
+  }
+
+  .form-section {
+    padding: 19px;
+  }
+
+  .update {
+    grid-template-columns:
+      40px
+      1fr;
+  }
+
+  .update .badge {
+    grid-column: 2;
+
+    width: max-content;
+  }
+
+  .submit-row {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .confirmation-actions .btn {
+    width: 100%;
+  }
+
+  .map {
+    min-height: 330px;
+  }
+}

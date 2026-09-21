@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>PowerGrid | Track Outage</title><link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" /><link rel="stylesheet" href="../css/app.css" /><link rel="stylesheet" href="../css/branding.css" /></head>
+  <body>
+    <div class="mobile-bar"><div class="brand-inline"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><span>PowerGrid</span></div><button class="mobile-menu" id="menuBtn" aria-label="Open navigation">☰</button></div>
+    <aside class="app-sidebar resident-sidebar" id="sidebar"><div class="sidebar-brand"><img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" /><div><strong>PowerGrid</strong><span>City of Tshwane</span></div></div><nav class="sidebar-nav" aria-label="Resident navigation"><a href="user-home.html"><span class="nav-symbol">⌂</span>Home</a><a href="user-report.html"><span class="nav-symbol">⚡</span>Report outage</a><a class="active" href="user-dashboard.html"><span class="nav-symbol">▣</span>My reports</a></nav><div class="sidebar-footer"><span class="city-mark">◫</span><div><strong>City of Tshwane</strong><span>Planning a better tomorrow</span></div></div></aside><div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="resident-main"><div class="resident-wrap">
+      <a class="back-link" href="user-dashboard.html">← Back to reports</a>
+      <header class="page-head"><div><h1>Tracking your outage</h1><div class="tracking-meta"><span>Report: <strong id="trackingReportId">—</strong></span><span>Incident: <strong id="trackingIncidentId">—</strong></span></div></div><div class="page-actions"><select class="select" id="reportSelector" aria-label="Select report" style="width:auto"></select><span id="trackingStatusBadge"></span></div></header>
+      <section class="card card-pad" style="margin-bottom:14px"><div class="progress-track" id="progressTrack"></div></section>
+      <section class="card current-status" style="margin-bottom:14px"><h2 id="currentStatusTitle">Select a report</h2><p id="currentStatusText">Your outage status will appear here.</p></section>
+      <section class="card confirmation-box" id="restorationCard" hidden style="margin-bottom:14px"><h2 class="section-title">Has your electricity been restored?</h2><p class="muted tiny">Your response updates the canonical incident.</p><div class="confirmation-actions"><button class="btn btn-primary" id="confirmRestored" type="button">Yes, power is back</button><button class="btn btn-outline" id="confirmNotRestored" type="button">No, still off</button></div></section>
+      <div class="detail-grid">
+        <section class="card card-pad"><div class="section-head"><h2>Timeline</h2></div><div class="timeline" id="residentTimeline"></div></section>
+        <section class="card card-pad"><div class="section-head"><h2>Incident details</h2></div><div class="summary-list" id="residentSummary"></div></section>
+      </div>
+      <div class="status-message" id="residentMessage" aria-live="polite"></div>
+    </div></main>
+    <script src="../js/data-store.js?v=20260921-hardening1"></script><script src="../js/user-track.js?v=20260921-hardening1"></script><script src="../js/user-shell.js?v=20260921-hardening1"></script>
+  </body>
+</html>

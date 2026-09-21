@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerGrid | Admin Access</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/admin-signin.css">
+    <link rel="stylesheet" href="../css/branding.css">
+</head>
+  <body>
+    <main class="page-shell">
+      <section class="brand-panel">
+        <div class="brand"><img class="powergrid-full-logo" src="../assets/powergrid-logo-light.svg" alt="PowerGrid" /></div>
+
+        <div class="copy">
+          <span class="eyebrow">Admin access</span>
+          <h2>Command center for service recovery teams.</h2>
+          <p>Coordinate incident response, monitor outage flow, and restore services with secure operational visibility.</p>
+
+          <ul class="feature-list">
+            <li>Live outage triage</li>
+            <li>Technician assignment</li>
+            <li>Resolution monitoring</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="form-panel" aria-label="Admin access form">
+        <div class="form-header">
+          <span>Administrator</span>
+          <h2>Admin Access</h2>
+        </div>
+
+        <form id="adminLoginForm">
+          <div class="field">
+            <label for="adminEmail">Admin email</label>
+            <input id="adminEmail" type="email" placeholder="admin@powergrid.co.za" required />
+          </div>
+
+          <div class="field">
+            <label for="adminPassword">Password</label>
+            <input id="adminPassword" type="password" placeholder="Enter admin password" required />
+          </div>
+
+          <button class="primary-btn" type="submit">Open admin dashboard</button>
+
+          <div class="status-box" id="adminStatus" aria-live="polite"></div>
+
+          <p class="signup">Need an admin account? <a href="create-account.html">Create one</a></p>
+        </form>
+      </section>
+    </main>
+    <script src="../js/admin-signin.js"></script>
+  </body>
+</html>

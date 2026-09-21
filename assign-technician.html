@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerGrid | Assign Technician</title>
+    <link rel="icon" href="../assets/powergrid-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/assign-technician.css" />
+    <link rel="stylesheet" href="../css/branding.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="PowerGrid Admin Dashboard">
+          <img class="powergrid-brand-mark" src="../assets/powergrid-mark.svg" alt="" />
+          <div><strong>PowerGrid</strong><small>Admin assignment</small></div>
+        </a>
+        <nav class="nav" aria-label="Admin navigation">
+          <a href="index.html">Dashboard</a>
+          <a href="incidents.html">Incidents</a>
+          <a href="reports.html">Reports</a>
+          <a href="technician-dashboard.html">Technician view</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="header-card">
+          <span class="eyebrow">Admin action</span>
+          <h1>Assign technician</h1>
+          <p class="subtitle">Assign an existing PowerGrid incident to a field technician. The incident remains the single source of truth.</p>
+        </section>
+
+        <section class="content">
+          <form class="panel assignment-form" id="assignmentForm">
+            <h2>Assignment details</h2>
+            <label><span>Incident</span><select id="incidentSelect" required></select></label>
+            <div class="incident-preview" id="incidentPreview"></div>
+            <label><span>Technician</span><select id="technicianSelect" required></select></label>
+            <div class="technician-preview" id="technicianPreview"></div>
+            <button class="btn primary" type="submit">Assign technician</button>
+            <p class="form-message" id="assignmentMessage" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="panel">
+            <h2>Shared workflow</h2>
+            <ol class="workflow-list">
+              <li>Assignment is stored on the incident.</li>
+              <li>The assigned technician accepts it in Technician Dashboard.</li>
+              <li>Technician progress updates this same incident.</li>
+              <li>Repair completion enters resident confirmation.</li>
+            </ol>
+            <p class="meta">Technicians cannot change priority, take over another job, or directly reassign an incident.</p>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="../js/data-store.js?v=20260921-hardening1"></script>
+    <script src="../js/assign-technician.js?v=20260921-hardening1"></script>
+  </body>
+</html>
